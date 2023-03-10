@@ -5,13 +5,16 @@ import App from "./components/app/App";
 import reportWebVitals from "./reportWebVitals";
 import ModalContextProvider from "./contexts/ModalContext";
 import AuthContextProvider from "./contexts/AuthContext";
+// import CloudinaryContextProvider from "./contexts/cloudinaryContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <ModalContextProvider>
+        {/* <CloudinaryContextProvider> */}
         <App />
+        {/* </CloudinaryContextProvider> */}
       </ModalContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
