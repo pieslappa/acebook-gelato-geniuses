@@ -10,6 +10,7 @@ import SignUpForm from "../user/SignUpForm";
 import Feed from "../feed/Feed";
 
 import { AuthContext } from "../../contexts/AuthContext";
+import Image from "../imageUpload/Image";
 
 const App = () => {
   const { token } = useContext(AuthContext);
