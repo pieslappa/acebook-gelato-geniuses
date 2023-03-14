@@ -4,12 +4,13 @@ import { useNavigate, Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import { ModalContext } from "../../contexts/modalContext";
+import { TokenContext } from "../../contexts/tokenContext";
 import classNames from "../../helpers/classNames";
 
 const NavBar = () => {
   const { pushModal } = useContext(ModalContext);
   const [user, setUser] = useState({});
-  const [token, setToken] = useState(window.localStorage.getItem("token"));
+  const { token, setToken } = useContext(TokenContext);
   const navigate = useNavigate();
 
   const getUser = async () => {
@@ -38,6 +39,7 @@ const NavBar = () => {
 
   const logout = () => {
     window.localStorage.removeItem("token");
+    setToken(null);
     pushModal({
       message: "Successfully logged out",
       type: "success",
