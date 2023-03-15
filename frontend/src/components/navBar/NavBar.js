@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment, useContext } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import { ModalContext } from "../../contexts/modalContext";
@@ -10,8 +10,7 @@ import classNames from "../../helpers/classNames";
 const NavBar = () => {
   const { pushModal } = useContext(ModalContext);
   const [user, setUser] = useState({});
-  const { token, setToken } = useContext(TokenContext);
-  const navigate = useNavigate();
+  const { token, setToken } = useContext(AuthContext);
 
   const getUser = async () => {
     if (token) {
@@ -44,7 +43,6 @@ const NavBar = () => {
       message: "Successfully logged out",
       type: "success",
     });
-    navigate("/login");
   };
 
   return (
@@ -52,7 +50,7 @@ const NavBar = () => {
       <div className="mx-auto px-2">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex shrink-0 items-center">
-            <Link to="/posts">
+            <Link to="/">
               <Logo className="mx-auto h-8 w-auto stroke-blue-600" />
             </Link>
           </div>
