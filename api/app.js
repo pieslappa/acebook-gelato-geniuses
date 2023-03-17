@@ -2,6 +2,7 @@ const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
+const cors = require("cors");
 
 const tokenChecker = require("./middleware/token_checker");
 
@@ -14,6 +15,7 @@ const app = express();
 
 // setup for receiving JSON
 app.use(express.json());
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
