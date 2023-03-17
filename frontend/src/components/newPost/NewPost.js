@@ -70,6 +70,7 @@ const NewPost = ({ getPosts }) => {
             type="file"
             ref={imageInputRef}
             onChange={(e) => setImageInput(e.target.files[0])}
+            className="block h-[38px] w-full cursor-pointer rounded-lg border border-blue-500 p-1 text-center text-sm text-gray-900 focus:outline-none"
           />
           <Button
             text={`${isLoading ? "Uploading..." : "Post"}`}

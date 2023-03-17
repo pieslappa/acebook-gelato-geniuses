@@ -2,14 +2,18 @@
 import React, { useState, useContext, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import jwtDecode from "jwt-decode";
+import {
+  ChatBubbleOvalLeftIcon as CommentFilledBtn,
+  HeartIcon as FilledLikeBtn,
+} from "@heroicons/react/24/solid";
+import {
+  ChatBubbleOvalLeftIcon as CommentBtn,
+  HeartIcon as LikeBtn,
+} from "@heroicons/react/24/outline";
 
 import { AdvancedImage } from "@cloudinary/react";
 import contextualTime from "../../helpers/contextualTime";
 
-import { ReactComponent as CommentBtn } from "../../assets/comment.svg";
-import { ReactComponent as CommentFilledBtn } from "../../assets/comment-filled.svg";
-import { ReactComponent as LikeBtn } from "../../assets/like.svg";
-import { ReactComponent as FilledLikeBtn } from "../../assets/fillLike.svg";
 import CommentList from "../commentList/CommentList";
 import NewComment from "../newComment/NewComment";
 import ProfilePicture from "../profilePicture/ProfilePicture";
@@ -117,7 +121,7 @@ const Post = ({ post }) => {
             {formatDate()}
           </div>
         </div>
-        <div className="my-2 mt-4 overflow-auto text-base">{post.message}</div>
+        <div className="mt-4 overflow-auto text-base">{post.message}</div>
       </div>
       <div className="flex max-h-[45vh] overflow-hidden">
         <AdvancedImage
@@ -140,7 +144,7 @@ const Post = ({ post }) => {
               data-cy="like-button"
               onClick={() => likeHandler("post")}
               type="button"
-              className="h-7 w-auto cursor-pointer fill-black"
+              className="h-7 w-auto cursor-pointer"
             />
           )}
           <p

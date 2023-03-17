@@ -16,13 +16,15 @@ const Comment = ({ comment }) => {
       data-cy="comment"
       className="flex flex-col rounded-md border border-gray-200 p-4 transition-all hover:bg-gray-100"
     >
-      <div className="flex">
+      <div className="flex items-center gap-4">
         <ProfilePicture
           className="h-10 w-10"
           publicId={comment.authorImageId}
         />
-        <div className="">
-          <p className="text-lg font-semibold">{comment.authorName}</p>
+        <div>
+          <p className="text-lg font-semibold capitalize">
+            {comment.authorName}
+          </p>
           {formatDate()}
         </div>
       </div>

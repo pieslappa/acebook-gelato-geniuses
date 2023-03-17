@@ -33,7 +33,7 @@ const NavBar = () => {
                 <div>
                   <Menu.Button
                     data-cy="profile_button"
-                    className="flex items-center rounded-full border border-gray-300 p-1 px-2 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="flex items-center rounded-full border border-gray-300 p-1 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">Open user menu</span>
                     <p data-cy="user" className="mx-2">
