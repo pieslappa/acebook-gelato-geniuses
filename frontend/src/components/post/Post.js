@@ -33,7 +33,11 @@ const Post = ({ post }) => {
   const getComments = useCallback(async () => {
     if (token) {
       const response = await fetch(
-        `/posts/comment?${new URLSearchParams({ postId })}`,
+        `https://acebook-backend.onrender.com/posts/comment?${new URLSearchParams(
+          {
+            postId,
+          }
+        )}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -74,16 +78,19 @@ const Post = ({ post }) => {
 
   const likeHandler = async (methodArg) => {
     if (token) {
-      const response = await fetch("/posts/like", {
-        method: methodArg,
-        body: JSON.stringify({
-          postId: post._id,
-        }),
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://acebook-backend.onrender.com/posts/like`,
+        {
+          method: methodArg,
+          body: JSON.stringify({
+            postId: post._id,
+          }),
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.status !== 201) {
         // error

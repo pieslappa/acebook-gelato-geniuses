@@ -20,14 +20,17 @@ const useUpload = () => {
       const data = await response.json();
 
       // 3. save the publicId to the database
-      const imageRes = await fetch("/images", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        method: "post",
-        body: JSON.stringify({ publicId: data.public_id }),
-      });
+      const imageRes = await fetch(
+        `https://acebook-backend.onrender.com/images`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          method: "post",
+          body: JSON.stringify({ publicId: data.public_id }),
+        }
+      );
       const imageData = await imageRes.json();
 
       window.localStorage.setItem("token", imageData.token);

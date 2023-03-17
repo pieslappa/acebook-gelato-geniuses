@@ -10,7 +10,7 @@ export default (finished) => {
   const update = async (body) => {
     setIsLoading(true);
 
-    const response = await fetch("/users", {
+    const response = await fetch(`https://acebook-backend.onrender.com/users`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

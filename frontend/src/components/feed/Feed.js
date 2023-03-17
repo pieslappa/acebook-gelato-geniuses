@@ -9,11 +9,14 @@ const Feed = () => {
 
   const getPosts = async () => {
     if (token) {
-      const response = await fetch("/posts", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `https://acebook-backend.onrender.com/posts`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.status !== 200) {
         // error

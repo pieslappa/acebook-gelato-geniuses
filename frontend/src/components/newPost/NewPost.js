@@ -30,7 +30,7 @@ const NewPost = ({ getPosts }) => {
 
     const publicId = await upload(imageInput);
 
-    const response = await fetch("/posts", {
+    const response = await fetch(`https://acebook-backend.onrender.com/posts`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

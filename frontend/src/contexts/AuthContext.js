@@ -11,11 +11,14 @@ const AuthContextProvider = ({ children }) => {
     const storedToken = window.localStorage.getItem("token");
 
     const getUser = async () => {
-      const response = await fetch("/users", {
-        headers: {
-          Authorization: `Bearer ${storedToken}`,
-        },
-      });
+      const response = await fetch(
+        `https://acebook-backend.onrender.com/users`,
+        {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        }
+      );
 
       const data = await response.json();
 

@@ -10,7 +10,7 @@ export default () => {
   const signup = async (name, username, email, password) => {
     setIsLoading(true);
 
-    const response = await fetch("/users", {
+    const response = await fetch(`https://acebook-backend.onrender.com/users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

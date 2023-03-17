@@ -9,14 +9,17 @@ const NewComment = ({ postId, getComments }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("/posts/comment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ message: commentMessage, postId }),
-    });
+    const response = await fetch(
+      `https://acebook-backend.onrender.com/posts/comment`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ message: commentMessage, postId }),
+      }
+    );
 
     if (response.status !== 201) {
       const data = await response.json();
